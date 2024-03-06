@@ -14,7 +14,7 @@ def update_textbox():
             name = inner_dict.get('name', None)
             if name is not None:
                 textbox.insert("end", name + "\n")  # Append the new name with a newline
-
+                textbox.see("end")
     root.after(1000, update_textbox)  # Check for updates every second
 
 def post():
@@ -26,6 +26,7 @@ def post():
     firebase.post('/first-4b2ba/Message', list)
 
 root = tk.Tk()
+root.geometry("400x300")
 root.title("Python Window with Textbox")
 
 textbox = tk.Text(root, height=5, width=30)
